@@ -5,7 +5,10 @@ import { Component, OnInit } from "@angular/core";
     templateUrl: './server.component.html'
 })
 export class ServerComponent implements OnInit {
+    serverID = 11;
+    serverStatus:string = 'Online'; 
     allowNewServers = false;
+    serverAddStatus = 'No servers are added.';
     constructor() {
         setTimeout(()=>{
             this.allowNewServers = true
@@ -15,7 +18,9 @@ export class ServerComponent implements OnInit {
     ngOnInit() {
 
     }
-    serverID = 11;
-    serverStatus:string = 'Online';  
+    
+    onCreateServer(){
+        this.serverAddStatus = 'One new server added.'
+    }
 
 }
