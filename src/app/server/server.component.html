@@ -7,9 +7,17 @@
     [(ngModel)] = "serverName"
     >
 <!-- <p>{{serverName}}</p> -->
-<button 
-    class="btn btn-primary" 
-    [disabled] = "serverName==''" 
-    (click) = "serverName=''" >Add Server</button>
-<p>{{ serverAddStatus }}</p>
-{{ 'Server' }} ID {{ serverID }} is {{ serverStatus }}
+<div class="container">
+    <div class="row">
+        <div class="class-md-12">
+            <button 
+                class="btn btn-primary" 
+                [disabled] = "serverName==''" 
+                (click) = "onCreateServer()" >Add Server</button>
+            <p *ngIf="serverCreated">The server  '{{ serverName }}' has been created.</p>
+                <ul [ngStyle]="{backgroundColor:getColor()}" [ngClass]="{online : serverStatus === 'Online'}">
+                   <li *ngFor = "let server of servers">{{ 'Server' }} ID {{ serverID }} is {{ serverStatus }}</li>
+                </ul>
+        </div>
+    </div>
+</div>
