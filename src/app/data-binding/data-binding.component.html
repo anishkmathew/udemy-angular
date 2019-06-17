@@ -1,0 +1,12 @@
+<p>
+  data-binding works!
+  Some lines of text
+</p>
+<input type="text"
+  class="form-control"
+  [(ngModel)] = "username">
+<p>{{ username }}</p>
+<button
+  class="btn btn-primary" 
+  [disabled] = "username == ''" 
+  (click) = "username=''">Add Username</button>
